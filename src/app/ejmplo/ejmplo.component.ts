@@ -1,12 +1,13 @@
-import {Component, ViewChild} from '@angular/core';
-import {CardUserComponent} from './card-user/card-user.component';
+import {Component, OnInit, ViewChild} from '@angular/core';
+import {CardUserComponent} from '../card-user/card-user.component';
 
 @Component({
-    selector: 'app-root',
-    templateUrl: './app.component.html',
-    styleUrls: ['./app.component.css']
+  selector: 'app-ejmplo',
+  templateUrl: './ejmplo.component.html',
+  styleUrls: ['./ejmplo.component.css']
 })
-export class AppComponent {
+export class EjmploComponent implements OnInit {
+
     title = 'Blog de la nasa';
     nombre: string = "";
     apellido: string = "";
@@ -42,5 +43,7 @@ export class AppComponent {
     public evento(e:string) {
         console.log(this.form)
     }
+
+    ngOnInit() {}
 
 }

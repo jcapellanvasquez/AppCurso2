@@ -1,0 +1,76 @@
+<h1>
+    {{title}} <br>
+    {{getTituloPrefijo()}}
+</h1>
+<p>
+    {{'nonirod enmanuel rodriguez arias' | capitalize}}
+</p>
+<!--<img src="../assets/img/bg-img.jpg">-->
+<!--<h4>-->
+<!--Caption de la imagen-->
+<!--</h4>-->
+<!--<p>-->
+<!--Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam aperiam asperiores doloremque earum natus-->
+<!--perferendis praesentium quibusdam. Dolorem eligendi eum itaque totam ullam! A minus nesciunt omnis rerum soluta-->
+<!--voluptates?-->
+<!--</p>-->
+
+<div class="container">
+    <div class="row">
+        <div class="col-12 col-md-8 border border-primary">
+            <form>
+                <div class="form-group">
+                    <label>Nombre:</label>
+                    <input class="form-control" [(ngModel)]="nombre" name="nombre" >
+                </div>
+                <div class="form-group">
+                    <label>Apellido:</label>
+                    <input class="form-control" [(ngModel)]="apellido" name="apellido" >
+                </div>
+                <div class="form-group">
+                    <label>E-mail:</label>
+                    <input class="form-control" [(ngModel)]="email" name="email" >
+                </div>
+            </form>
+            <button
+                class="btn btn-block btn-primary"
+                (click)="complete()"
+            >Completar</button>
+
+
+            <button
+                class="btn btn-block btn-primary"
+                (click)="add()"
+            >Agregar</button>
+
+            <div *ngIf="isEmpty" class="alert alert-primary">
+                <p>Formulario incompleto</p>
+            </div>
+
+
+        </div>
+        <div class="col-12 col-md-4 border border-danger">
+            <app-card-user
+                [nombre]="this.nombre"
+                [apellido]="this.apellido"
+                [email]="this.email"
+                (miEvento)="evento($event)"
+                #userCard
+
+            ></app-card-user>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-6">
+            <ul class="list-group mt-2" *ngFor="let i of items; let j=index ">
+                <h4>{{j+1}}</h4>
+                <li class="list-group-item">
+                    <h4>Nombre: {{i['nombre']}}</h4>
+                    <p>Codigo: {{i['codigo']}}</p>
+                </li>
+            </ul>
+        </div>
+        <!--<button (click)="userCard."></button>-->
+    </div>
+</div>
+

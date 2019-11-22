@@ -1,4 +1,4 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 
 @Component({
     selector: 'app-card-user',
@@ -8,20 +8,28 @@ import {Component, Input, OnInit} from '@angular/core';
 export class CardUserComponent implements OnInit {
 
     @Input()
-    nombre:string = "";
+    nombre: string = '';
 
 
     @Input()
-    apellido:string = "";
+    apellido: string = '';
 
 
     @Input()
-    email:string = "";
+    email: string = '';
+
+    @Output()
+    miEvento: EventEmitter<string> = new EventEmitter<string>();
 
     constructor() {
     }
 
     ngOnInit() {
     }
+
+    public click() {
+        this.miEvento.emit(`nombre: ${this.nombre} apellido: ${this.apellido} email: ${this.email}`);
+    }
+
 
 }
